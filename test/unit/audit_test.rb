@@ -36,6 +36,9 @@ describe HammerCLIForeman::Audit do
 
 
   context "InfoCommand" do
+     before do
+        cmd.stubs(:extend_data)
+    end
 
     let(:cmd) { HammerCLIForeman::Audit::InfoCommand.new("", ctx) }
 
@@ -53,6 +56,7 @@ describe HammerCLIForeman::Audit do
         it_should_print_column "Action"
         it_should_print_column "Audit type"
         it_should_print_column "Audit record"
+        it_should_print_column "Audited changes"
       end
     end
 
